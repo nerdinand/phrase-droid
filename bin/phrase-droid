@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+require 'gli'
+require 'phrase-droid'
+require 'pry'
+
+include GLI::App
+
+program_desc 'Push and Pull your translations to PhraseApp'
+
+version PhraseDroid::VERSION
+
+desc 'Create configuration'
+arg_name 'auth_token'
+command :init do |c|
+  c.action do |global_options,options,args|
+    help_now!('auth_token is required') if args.empty?
+
+    PhraseDroid.init(args.first)
+  end
+end
+
+desc 'Push translations to PhraseApp'
+arg_name 'Describe arguments to push here'
+command :push do |c|
+  c.action do |global_options,options,args|
+    PhraseDroid.push
+  end
+end
+
+desc 'Pull translation to PhraseApp'
+arg_name 'Describe arguments to pull here'
+command :pull do |c|
+  c.action do |global_options,options,args|
+    PhraseDroid.pull
+  end
+end
+
+pre do |global,command,options,args|
+  # Pre logic here
+  # Return true to proceed; false to abort and not call the
+  # chosen command
+  # Use skips_pre before a command to skip this block
+  # on that command only
+  true
+end
+
+post do |global,command,options,args|
+  # Post logic here
+  # Use skips_post before a command to skip this
+  # block on that command only
+end
+
+exit run(ARGV)
