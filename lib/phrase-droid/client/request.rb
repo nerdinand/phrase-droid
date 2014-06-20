@@ -1,11 +1,11 @@
 module PhraseDroid
   class Client
     module Request
-      
-      private
 
       class RequestError < StandardError
       end
+
+      private
 
       def get(path, options = {})
         response = self.class.get(build_url(path, options))
@@ -14,7 +14,17 @@ module PhraseDroid
           raise_error(response.body)
         end
 
-        response
+        response.body
+      end
+
+      def post(path, body, options = {})
+        response = self.class.post(build_url(path, options), body: body)
+
+        unless response.code.eql?(200)
+          raise_error(response.body)
+        end
+
+        response.body
       end
 
       def raise_error(body)

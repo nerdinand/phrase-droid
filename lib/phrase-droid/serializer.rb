@@ -4,32 +4,46 @@ module PhraseDroid
       @path = path
     end
 
-    def store(xml, locale)
-      if locale == 'en'
-        store_values('values/strings.xml', xml)
-      else
+    def write(xml, locale)
+      unless locale == 'en'
         create_values_directory(locale)
-        store_values("values-#{locale}/strings.xml", xml)
       end
+
+      write_values(strings_path(locale), xml)
+      puts "  saved values for #{locale}".color(:green)
+    end
+
+    def read(locale)
+      File.read(strings_path(locale))
     end
 
     private
 
     def create_values_directory(locale)
-      values_path = File.join(base_path, "values-#{locale}")
-      unless Dir.exists?(values_path)
-        puts "mkdir #{values_path}"
-        Dir.mkdir(values_path)
+      path = values_path(locale)
+      unless Dir.exists?(path)
+        Dir.mkdir(path)
+        print " created directory <#{path}>".color(:green)
       end
     end
 
-    def store_values(file_path, xml)
-      puts "store translations in #{file_path}"
-
-      full_path = File.join(Dir.pwd, @path,file_path)
-
-      File.open(full_path, 'w+') do |file|
+    def write_values(file_path, xml)
+      File.open(file_path, 'w+') do |file|
         file.write(xml)
+      end
+    end
+
+    def strings_path(locale)
+      File.join(values_path(locale), 'strings.xml')
+    end
+
+    def values_path(locale)
+      path = File.join(base_path, "values")
+
+      if locale == 'en'
+        path
+      else
+        "#{path}-#{locale}"
       end
     end
 
