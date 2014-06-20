@@ -8,18 +8,20 @@ spec = Gem::Specification.new do |s|
   s.homepage = 'http://maveonair.io'
   s.platform = Gem::Platform::RUBY
   s.summary = 'Push and Pull your PhraseApp translations for Android'
+  s.licenses = ['MIT']
   s.files = `git ls-files`.split("
 ")
   s.require_paths << 'lib'
   s.has_rdoc = true
-  s.extra_rdoc_files = ['README.rdoc','phrase-droid.rdoc']
-  s.rdoc_options << '--title' << 'phrase-droid' << '--main' << 'README.rdoc' << '-ri'
+  s.extra_rdoc_files = ['README.md']
+  s.rdoc_options << '--title' << 'phrase-droid' << '--main' << 'README.md' << '-ri'
   s.bindir = 'bin'
   s.executables << 'phrase-droid'
-  s.add_development_dependency('rake')
-  s.add_development_dependency('rdoc')
-  s.add_development_dependency('pry')
+  s.add_development_dependency('rake', '~> 10.3')
+  s.add_development_dependency('rdoc', '~> 4.1')
+  s.add_development_dependency('pry', '~> 0.9')
   s.add_runtime_dependency('gli', '2.11.0')
-  s.add_runtime_dependency('httparty')
-  s.add_runtime_dependency('toml', '0.0.3')
+  s.add_runtime_dependency('httparty', '~> 0.13')
+  s.add_runtime_dependency('toml', '~> 0.0')
+  s.add_runtime_dependency('rainbow', '~> 2.0')
 end

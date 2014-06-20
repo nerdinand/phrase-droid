@@ -32,7 +32,7 @@ module PhraseDroid
     private
 
     def client
-      PhraseDroid::Client.new(auth_token)
+      @@client ||= PhraseDroid::Client.new(auth_token)
     end
   end
 end

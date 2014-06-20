@@ -11,7 +11,7 @@ module PhraseDroid
         create_values_directory(locale)
         store_values("values-#{locale}/strings.xml", xml)
       end
-    end  
+    end
 
     private
 
@@ -24,7 +24,8 @@ module PhraseDroid
     end
 
     def store_values(file_path, xml)
-      puts "store translations for #{file_path}"
+      puts "store translations in #{file_path}"
+
       full_path = File.join(Dir.pwd, @path,file_path)
 
       File.open(full_path, 'w+') do |file|
