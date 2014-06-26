@@ -19,15 +19,15 @@ $ phrase-droid init 215feb1e550bb1af97e9f54afd839346 -d app/src/main/res
 ```
 
 ### Pull && Push
-With your configuration in place, you can pull and push the translations to PhraseApp:
+With your configuration in place, you can pull and push the translations to PhraseApp.
 
-___Download all translations (Android String XML) for all existing locales in your PhraseApp project.___
+Download all translations (Android String XML) for all existing locales in your PhraseApp project:
 ```
 $ cd Code/your-awesome-project
 $ phrase-droid pull
 ```
 
-___Import all translations (Android String XML) for all Android String locales to your PhraseApp project.___
+Import all translations (Android String XML) for all Android String locales to your PhraseApp project:
 ```
 $ cd Code/your-awesome-project
 $ phrase-droid push
