@@ -2,6 +2,36 @@
 
 Push and Pull your PhraseApp translations for Android
 
+## Install
+```
+gem install phrase-droid
+```
+
+## Examples
+### Initialization
+Before you can pull or push any translations you have to create the configuration in your Android Project.
+
+The ```init``` command expects your PhraseApp auth token as the first parameter. Moreover, you can specify the resources directory of your Android Project with the ```-d``` or ```--reouces-path``` flag.
+
+```
+$ cd Code/your-awesome-project
+$ phrase-droid init 215feb1e550bb1af97e9f54afd839346 -d app/src/main/res
+```
+
+### Pull && Push
+With your configuration in place, you can pull and push the translations to PhraseApp:
+
+___Download all translations (Android String XML) for all existing locales in your PhraseApp project.___
+```
+$ cd Code/your-awesome-project
+$ phrase-droid pull
+```
+
+___Import all translations (Android String XML) for all Android String locales to your PhraseApp project.___
+```
+$ cd Code/your-awesome-project
+$ phrase-droid push
+```
 
 ## Licence
 The MIT Licence
