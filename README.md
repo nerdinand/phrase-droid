@@ -1,4 +1,4 @@
-# phrase-droid [![Code Climate](https://codeclimate.com/github/maveonair/phrase-droid.png)](https://codeclimate.com/github/maveonair/phrase-droid) [![Travis](https://api.travis-ci.org/maveonair/phrase-droid.png)](https://api.travis-ci.org/maveonair/phrase-droid.svg)
+# phrase-droid [![Code Climate](https://codeclimate.com/github/maveonair/phrase-droid.png)](https://codeclimate.com/github/maveonair/phrase-droid) [![Travis](https://api.travis-ci.org/maveonair/phrase-droid.png)](https://travis-ci.org/maveonair/phrase-droid)
 
 Push and Pull PhraseApp translations for Android.
 
