@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "de",
+        "is_default": true,
+        "code": "de",
+        "country_code": "de",
+        "writing_direction": "ltr",
+        "pluralizations": {
+            "zero": {
+                "example": "0"
+            },
+            "one": {
+                "gettext_mapping": "0",
+                "example": "1"
+            },
+            "other": {
+                "gettext_mapping": "1",
+                "example": "2"
+            }
+        }
+    },
+    {
+        "id": 2,
+        "name": "en",
+        "is_default": false,
+        "code": "en",
+        "country_code": "gb",
+        "writing_direction": "ltr",
+        "pluralizations": {
+            "zero": {
+                "example": "0"
+            },
+            "one": {
+                "gettext_mapping": "0",
+                "example": "1"
+            },
+            "other": {
+                "gettext_mapping": "1",
+                "example": "2"
+            }
+        }
+    }
+]
