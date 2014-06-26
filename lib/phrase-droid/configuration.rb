@@ -6,7 +6,7 @@ module PhraseDroid
     def store_configuration(configuration)
       File.open(configuration_file, 'w+') do |file|
         configuration.each do |key, value|
-          file.puts("#{key} = #{value}")
+          file.puts("#{key} = \"#{value}\"")
         end
       end
     end
