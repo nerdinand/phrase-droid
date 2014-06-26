@@ -1,6 +1,6 @@
 # phrase-droid [![Code Climate](https://codeclimate.com/github/maveonair/phrase-droid.png)](https://codeclimate.com/github/maveonair/phrase-droid) [![Travis](https://api.travis-ci.org/maveonair/phrase-droid.png)](https://api.travis-ci.org/maveonair/phrase-droid.svg)
 
-Push and Pull your PhraseApp translations for Android
+Push and Pull PhraseApp translations for Android.
 
 ## Install
 ```
