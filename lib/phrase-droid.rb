@@ -1,4 +1,3 @@
-require 'pry'
 require 'rainbow/ext/string'
 require 'toml'
 
@@ -11,10 +10,8 @@ module PhraseDroid
   class << self
     include Configuration
 
-    def init(auth_token)
-      File.open(configuration_file, 'w+') do |file|
-        file.write("auth_token = \"#{auth_token}\"")
-      end
+    def init(configuration)
+      store_configuration(configuration)
     end
 
     def pull
@@ -48,7 +45,7 @@ module PhraseDroid
     end
 
     def serializer
-      PhraseDroid::Serializer.new
+      @@serializer ||= PhraseDroid::Serializer.new(resources_path)
     end
   end
 end

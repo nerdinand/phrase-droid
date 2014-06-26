@@ -11,17 +11,21 @@ version PhraseDroid::VERSION
 desc 'Create configuration'
 arg_name 'auth_token'
 command :init do |c|
-  c.action do |global_options,options,args|
+  c.flag [:d, :resources_path]
+  c.action do |global_options, options, args|
     help_now!('auth_token is required') if args.empty?
 
-    PhraseDroid.init(args.first)
+    configuration = { :auth_token => args.first }
+    configuration['resources_path'] = options['resources_path'] if options['resources_path']
+
+    PhraseDroid.init(configuration)
   end
 end
 
 desc 'Push translations to PhraseApp'
 arg_name 'Describe arguments to push here'
 command :push do |c|
-  c.action do |global_options,options,args|
+  c.action do |global_options, options, args|
     PhraseDroid.push
   end
 end
@@ -29,24 +33,9 @@ end
 desc 'Pull translation to PhraseApp'
 arg_name 'Describe arguments to pull here'
 command :pull do |c|
-  c.action do |global_options,options,args|
+  c.action do |global_options, options ,args|
     PhraseDroid.pull
   end
-end
-
-pre do |global,command,options,args|
-  # Pre logic here
-  # Return true to proceed; false to abort and not call the
-  # chosen command
-  # Use skips_pre before a command to skip this block
-  # on that command only
-  true
-end
-
-post do |global,command,options,args|
-  # Post logic here
-  # Use skips_post before a command to skip this
-  # block on that command only
 end
 
 exit run(ARGV)

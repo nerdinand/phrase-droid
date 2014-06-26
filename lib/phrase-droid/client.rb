@@ -15,7 +15,7 @@ module PhraseDroid
     include Translations
 
     BASE_URI = 'https://phraseapp.com/api/v1'
-
+    
     def initialize(auth_token)
       @auth_token = auth_token
       self.class.base_uri(BASE_URI)

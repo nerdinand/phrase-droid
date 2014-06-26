@@ -20,7 +20,6 @@ spec = Gem::Specification.new do |s|
   s.required_ruby_version = '~> 2.1'
   s.add_development_dependency('rake', '~> 10.3')
   s.add_development_dependency('rdoc', '~> 4.1')
-  s.add_development_dependency('pry', '~> 0.9')
   s.add_runtime_dependency('gli', '2.11.0')
   s.add_runtime_dependency('httparty', '~> 0.13')
   s.add_runtime_dependency('toml', '~> 0.1')

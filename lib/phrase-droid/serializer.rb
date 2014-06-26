@@ -1,9 +1,13 @@
 module PhraseDroid
   class Serializer
-    def initialize(path = 'app/src/main/res')
-      @path = path
+    def initialize(resources_path)
+      @resources_path = resources_path
     end
 
+    # Writes the specfied XML content to the Android String XML for the specified locale.
+    #
+    # @param [String] locale the locale
+    # @param [String] XML the file content of the Android String XML
     def write(xml, locale)
       unless locale == 'en'
         create_values_directory(locale)
@@ -13,6 +17,11 @@ module PhraseDroid
       puts "  saved values for #{locale}".color(:green)
     end
 
+    # Return the file content of the Android String XML for the specified locale.
+    #
+    # @param [String] locale the locale
+    # @param [String] XML the file content of the Android String XML
+    # @return [String] Android String XML
     def read(locale)
       File.read(strings_path(locale))
     end
@@ -48,7 +57,7 @@ module PhraseDroid
     end
 
     def base_path
-      File.join(Dir.pwd, @path)
+      File.join(Dir.pwd, @resources_path)
     end
   end
 end
