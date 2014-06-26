@@ -3,6 +3,10 @@ require 'spec_helper'
 describe PhraseDroid::Serializer do
   let (:serializer) { PhraseDroid::Serializer.new('spec/tmp') }
 
+  before(:all) do
+    Dir.mkdir('spec/tmp') unless Dir.exist?('spec/tmp')
+  end
+
   it 'writes a XML file' do
     serializer.write(get_fixture('values-de.xml'), 'de')
 
@@ -12,7 +16,7 @@ describe PhraseDroid::Serializer do
 
   it 'reads a XML file' do
     serializer.write(get_fixture('values-de.xml'), 'de')
-    
+
     xml = serializer.read('de')
     expect(xml).to include('send')
     expect(xml).to include('Senden')
