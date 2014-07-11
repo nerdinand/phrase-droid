@@ -11,7 +11,7 @@ gem install phrase-droid
 ### Initialization
 Before you can pull or push any translations you have to create the configuration in your Android Project.
 
-The ```init``` command expects your PhraseApp auth token as the first parameter. Moreover, you can specify the resources directory of your Android Project with the ```-d``` or ```--reouces-path``` flag.
+The ```init``` command expects your PhraseApp auth token as the first parameter. Moreover, you can specify the resources directory of your Android Project with the ```-d``` or ```--resources_path``` flag.
 
 ```
 $ cd Code/your-awesome-project
